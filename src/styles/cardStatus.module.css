@@ -1,0 +1,24 @@
+.booked {
+    background-color: #296477;
+    box-shadow: 0 0 0.2rem 0.1rem #0762EA;
+    border-left: 2px solid #0762EA;
+  }
+  
+  .online {
+    background-color: #fff;
+    box-shadow:  0 0 0.2rem 0.1rem #04c367;
+    border-left: 2px solid #04c367;
+  }
+  
+  .available {
+    background-color: #fff;
+    box-shadow:  0 0 0.2rem 0.1rem #2A2727;
+    border-left: 2px solid #2A2727;
+  }
+  
+  .disconnected {
+    background-color: #fff;
+    box-shadow:  0 0 0.2rem 0.1rem #872121;
+    border-left: 2px solid #872121;
+  }
+  
