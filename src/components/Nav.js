@@ -40,7 +40,7 @@ function Nav() {
     <nav className='top-0 sticky w-full flex justify-between items-center z-10 px-10 bg-[#f1f1f1] text-slate-400 h-20 border-b-2 border-slate-700'>
         <div className='w-[35%] flex items-center space-x-4'>
             <div className='w-20 h-16 relative'>
-                <Image src = {"/logo.jpg"} fill objectFit = "cover"/>
+                <Image src = {"/logo.jpg"} fill objectFit = "cover" alt='logo'/>
             </div>
             <div className='w-full'>
             <input type="search" name="search" id="search" className='w-full py-2 px-2 rounded-xl'/>

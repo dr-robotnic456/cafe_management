@@ -6,6 +6,7 @@ const Auth = (WrappedComponent) => {
     const router = useRouter();
 
     useEffect(() => {
+      
       const checkAuth = () => {
         // Check if a token is present in localStorage
         const token = localStorage.getItem('token');
