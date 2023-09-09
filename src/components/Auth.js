@@ -2,17 +2,15 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 const Auth = (WrappedComponent) => {
-  return (props) => {
+  const WithAuth = (props) => {
     const router = useRouter();
 
     useEffect(() => {
-      
       const checkAuth = () => {
-        // Check if a token is present in localStorage
         const token = localStorage.getItem('token');
 
         if (!token) {
-          router.replace('/Login'); // Redirect to login if there is no token
+          router.replace('/Login');
         }
       };
 
@@ -21,6 +19,14 @@ const Auth = (WrappedComponent) => {
 
     return <WrappedComponent {...props} />;
   };
+
+  WithAuth.displayName = `WithAuth(${getDisplayName(WrappedComponent)})`;
+
+  return WithAuth;
 };
+
+function getDisplayName(WrappedComponent) {
+  return WrappedComponent.displayName || WrappedComponent.name || 'Component';
+}
 
 export default Auth;
