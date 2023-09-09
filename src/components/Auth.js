@@ -17,7 +17,7 @@ const Auth = (WrappedComponent) => {
       };
 
       checkAuth();
-    }, []);
+    }, [router]);
 
     return <WrappedComponent {...props} />;
   };
