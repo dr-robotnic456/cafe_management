@@ -10,7 +10,7 @@ const Auth = (WrappedComponent) => {
         const token = localStorage.getItem('token');
 
         if (!token) {
-          router.replace('/Login');
+          router.replace('/Login'); // Redirect to the login page if the token is missing
         }
       };
 
@@ -20,15 +20,7 @@ const Auth = (WrappedComponent) => {
     return <WrappedComponent {...props} />;
   };
 
-  WithAuth.displayName = `WithAuth(${getDisplayName(WrappedComponent)})`;
-
   return WithAuth;
 };
 
-function getDisplayName(WrappedComponent) {
-  return WrappedComponent.displayName || WrappedComponent.name || 'Component';
-}
-
 export default Auth;
-
-
