@@ -34,7 +34,7 @@ const ManagementForm = ({ showMenu, setShowMenu, selectedPc }) => {
             date: '',
             duration: '',
             amount: '',
-            time: '',
+            time: ''
           });
         }
       }

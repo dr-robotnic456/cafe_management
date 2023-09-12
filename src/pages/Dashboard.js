@@ -102,21 +102,33 @@ const Dashboard = () => {
     dispatch(removeCustomer())
   };
 
-  const addCustomer = async () => {
+  // const curCustomer = {
+  //   name:currentCustomer.name,
+  //   contact:currentCustomer.contact,
+  //   address:currentCustomer.address,
+  //   date:currentCustomer.date,
+  //   duration:currentCustomer.duration,
+  //   amount:currentCustomer.amount,
+  //   pc:currentCustomer.pcId,
+  //   time:currentCustomer.time
+  // }
+
+  const addCustomer = async (customer) => {
     try {
-      await axios.post("/api/customers", currentCustomer);
+      await axios.post("/api/customers", customer);
     } catch (error) {
       console.log(error)
     }
   };
 
-  const handleStartButtonClick = (pcId, duration) => {
+  const handleStartButtonClick = (pcId, duration, customer) => {
     // Dispatch the updatePcStatus action to set the status to "online"
     dispatch(updatedPcStatus({ pcId, newStatus: 'online' }));
 
     // Start the timer
     startTimer(pcId, duration);
-    addCustomer();
+    console.log(customer)
+    addCustomer(customer);
   };
   
 
@@ -198,7 +210,7 @@ const Dashboard = () => {
                       <div className="text-sm my-3 text-center">{customer.date}</div>
                       {!timers[pc._id] ? (
                         <div className='absolute bottom-3 items-center justify-center w-full right-2 left-5'>
-                        <button onClick={() => handleStartButtonClick(pc._id, customer.duration)} className='py-1 w-[80%] items-center text-white bg-[#0762EA] px-2'>
+                        <button onClick={() => handleStartButtonClick(pc._id, customer.duration, customer)} className='py-1 w-[80%] items-center text-white bg-[#0762EA] px-2'>
                           Start
                         </button>
                         </div>
