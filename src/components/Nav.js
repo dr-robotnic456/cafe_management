@@ -5,7 +5,6 @@ import React, { useState } from 'react'
 import { FaHome, FaSun, FaFilter } from "react-icons/fa"
 import { IoMdSettings } from "react-icons/io"
 
-
 const MenuData = ({ showMenu, profileId }) => {
   const router = useRouter()
   const logout = () => {

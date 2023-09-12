@@ -25,7 +25,7 @@ const handler = async (req, res) => {
 
     case "GET":
       try {
-        const pc = await Pc.find();
+        const pc = await Pc.find().populate("customer");
         if (!pc) {
           return res.status(400).json({ message: "No pc Found" });
         }

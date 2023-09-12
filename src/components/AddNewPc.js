@@ -12,10 +12,10 @@ const AddNewPc = ({ showPcMenu, setShowPcMenu }) => {
 
     const [error, setError] = useState("")
 
-    const { name, type, status } = pc;
+    const { name, type } = pc;
     const addPc = async () => {
         try {
-            if (!name || !type || !status ) {
+            if (!name || !type  ) {
                 setError("Please provide all credentials")
             }
             await axios.post("/api/pc", pc);
@@ -56,14 +56,14 @@ const AddNewPc = ({ showPcMenu, setShowPcMenu }) => {
                             <input type="text" name="type" id="type" className="w-full px-3 py-2" placeholder='Package Type' value={type} onChange={handleInputChange} />
                         </div>
 
-                        <div className='my-5'>
+                        {/* <div className='my-5'>
                             <select name="status" id="status" className="text-slate-500 w-full px-3 py-2" placeholder='status' value={status} onChange={handleInputChange}>
                                 <option value="available">Available</option>
                                 <option value="online">Online</option>
                                 <option value="booked">Booked</option>
                                 <option value="disconnected">Disconnected</option>
                             </select>
-                        </div>
+                        </div> */}
                         <div className='items-center justify-center flex bg-[#2A2727] rounded-lg'>
                             <button type="submit" className='uppercase py-2 hover:bg-[#0762EA] w-full outline-none rounded-lg font-bold'>Add</button>
                         </div>
@@ -71,6 +71,7 @@ const AddNewPc = ({ showPcMenu, setShowPcMenu }) => {
                 </div>
             )}
         </div>
+        
     )
 }
 

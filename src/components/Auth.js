@@ -30,3 +30,5 @@ function getDisplayName(WrappedComponent) {
 }
 
 export default Auth;
+
+

@@ -28,6 +28,13 @@ const CustomerSchema = new Schema({
     pc:{
         type:mongoose.Schema.Types.ObjectId,
         ref :"Pc"
+    },
+    bookedTime:{
+        type:String,
+        required:true
+    },
+    startTime:{
+        type:String,
     }
 })
 

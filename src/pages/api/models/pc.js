@@ -9,12 +9,6 @@ const PcSchema = new Schema({
         type:String,
         required:true
     },
-    status:{
-        type:String,
-        enum:["available", "disconnected", "booked", "online"],
-        required:true,
-        default:"available"
-    },
     customer:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Customer"

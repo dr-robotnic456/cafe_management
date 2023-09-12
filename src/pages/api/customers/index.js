@@ -24,16 +24,17 @@ const handler = async (req, res) => {
     }
 
     case "GET":
-      try {
-        const customer = await Customer.find();
-        if (!customer) {
-          return res.status(400).json({ message: "No customer Found" });
-        }
-        return res.status(200).json(customer);
-      } catch (error) {
-        console.error(error);
-        return res.status(500).json({ message: "Internal Server Error" });
-      }
+  try {
+    const customers = await Customer.find().populate("pc");
+    if (customers.length === 0) {
+      return res.status(404).json({ message: "No customers found" });
+    }
+    return res.status(200).json(customers);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+
 
     case "DELETE":
       try {
